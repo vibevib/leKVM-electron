@@ -1,0 +1,40 @@
+{
+  "name": "kvm",
+  "version": "1.0.0",
+  "description": "KVM client",
+  "license": "AGPL-3.0-or-later",
+  "main": "main.js",
+  "productName": "leKVM",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac",
+    "release": "Tools/release.sh",
+    "test": "playwright test"
+  },
+  "build": {
+    "appId": "com.kvm.app",
+    "productName": "leKVM",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": "dmg",
+      "icon": "assets/icons/icon.icns",
+      "identity": null,
+      "extendInfo": {
+        "NSCameraUsageDescription": "leKVM passes your camera to the remote machine as a virtual webcam, when you turn that on in Settings.",
+        "NSMicrophoneUsageDescription": "leKVM passes your microphone to the remote machine as a virtual headset, when you turn that on in Settings."
+      }
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "electron": "^44.3.0",
+    "electron-builder": "^26.15.3",
+    "sharp": "^0.35.4"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
+  },
+  "allowScripts": {
+    "electron@44.3.0": true
+  }
+}
